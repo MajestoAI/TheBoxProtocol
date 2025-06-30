@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Majesto Presents: The Box Protocol</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    a {
+      display: block;
+      width: 50%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      a {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://vimeo.com/1097683092/0bbf9971e1?share=copyautoplay=1" target="_blank" rel="noopener noreferrer">
+    <img src="your-image.png" alt="Click to watch video" />
+  </a>
+</body>
+</html>
