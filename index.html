@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Majesto Presents: The Box Protocol</title>
+  <title>Landing Page</title>
   <style>
     body {
       margin: 0;
@@ -15,30 +15,87 @@
       height: 100vh;
     }
 
-    a {
-      display: block;
-      width: 50%;
-    }
-
     img {
-      width: 100%;
+      width: 50%;
+      max-width: 100%;
       height: auto;
+      cursor: pointer;
       display: block;
     }
 
     @media (max-width: 600px) {
-      a {
+      img {
         width: 80%;
       }
+    }
+
+    /* Modal Styles */
+    #videoModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #videoModal iframe {
+      width: 80%;
+      height: 80%;
+      border: none;
+    }
+
+    #videoModal.active {
+      display: flex;
     }
   </style>
 </head>
 <body>
-  <<a href="https://player.vimeo.com/video/1097683092/0bbf9971e1?share=copyautoplay=1&fullscreen=1&title=0&byline=0&portrait=0" target="_blank" rel="noopener noreferrer">
-  <img src="your-image.png" alt="Click to watch video" />
-</a>
->
-    <img src="Generate Button for Landing Page.png" alt="Click to watch video" />
-  </a>
+
+  <!-- Clickable Image -->
+  <img id="launchVideo" src="Generate Button for Landing Page.png" alt="Click to watch video" />
+
+  <!-- Video Modal -->
+  <div id="videoModal">
+    <iframe
+      id="vimeoPlayer"
+      src=""
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    const launchBtn = document.getElementById('launchVideo');
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('vimeoPlayer');
+
+    const vimeoID = "12345678"; // Replace with your Vimeo ID
+
+    launchBtn.addEventListener('click', () => {
+      player.src = `https://player.vimeo.com/video/${1097683092/0bbf9971e1}?autoplay=1&muted=1&title=0&byline=0&portrait=0`;
+      modal.classList.add('active');
+    });
+
+    // Close modal on click outside video or ESC key
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        player.src = ''; // Stop playback
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.classList.remove('active');
+        player.src = '';
+      }
+    });
+  </script>
+
 </body>
 </html>
